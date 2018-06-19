@@ -13,6 +13,8 @@ void draw() {
   //ellipse(mouseX, mouseY, 20,20);
   //draw center box
   drawRect(int(boxX), int(boxY), int(boxSize), int(boxSize));
+  drawRect(int(10), int(10), int(100), int(1));
+  drawRect(int(10), int(100), int(100), int(0));
 /*
   drawQuad(new PVector[] {
     new PVector(boxX-boxSize,boxY-boxSize),
@@ -103,7 +105,10 @@ boolean containsPoint(PVector[] verts, float px, float py) {
 // taken from:
 // http://hg.postspectacular.com/toxiclibs/src/tip/src.core/toxi/geom/Polygon2D.java
 boolean containsPoint(int x, int y, int w, int h, int px, int py) {
-  println("x="+x+",y="+y+",w="+w+",h="+h+",px="+px+",py="+py);
-  if (px >= x && py >= y && px <= x + w && py <= y +h) return true;
+  if (px >= x && py >= y && px <= x + w && py <= y +h) {
+    println("x="+x+",y="+y+",w="+w+",h="+h+",px="+px+",py="+py+"->true");
+    return true;
+  }
+  println("x="+x+",y="+y+",w="+w+",h="+h+",px="+px+",py="+py+"->false");
   return false;
 }
